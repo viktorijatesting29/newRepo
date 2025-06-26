@@ -1,8 +1,8 @@
 os: linux
 dist: focal
 vm: # existing key (you should define a value or remove it)
-  create:
-    name: custom_imagetest # custom identifier string, human readable
+  use:
+    name: custom_mneeeeee
 
 before_install:
   - sudo apt-get -y install libxml2-dev
