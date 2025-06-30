@@ -1,17 +1,27 @@
 os: linux
-dist: focal
-vm: # existing key (you should define a value or remove it)
-  use:
-    name: custom_mneeeeee
 
-before_install:
-  - sudo apt-get -y install libxml2-dev
-
-addons:
-  apt:
-    update: true
+vm:
+  size: [large]
+language: java
+services:
+  - docker
+cache: bundler
+dist: bionic
 
 
+install: skip
+
+jobs:
+  include:
+    - name: failing
+      script: true
+
+after_success:
+  - echo done
+  - echo $TRAVIS_TEST_RESULT
+after_failure:
+  - echo failed
+  - echo $TRAVIS_TEST_RESULT
     
 
     
